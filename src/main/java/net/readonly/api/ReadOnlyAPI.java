@@ -52,7 +52,7 @@ public class ReadOnlyAPI {
         port(config.getPort());
         Spark.init();
 
-        get("/mantaroapi/ping", (req, res) ->
+        get("/api/ping", (req, res) ->
                 new JSONObject().put("status", "ok")
                         .put("version", APIInfo.VERSION)
                         .put("rev", APIInfo.GIT_REVISION)
@@ -60,7 +60,7 @@ public class ReadOnlyAPI {
                         .toString()
         );
 
-        path("/mantaroapi/bot", () -> {
+        path("/api/bot", () -> {
             //Spark why does this work like this but not without an argument, I'M LITERALLY GIVING YOU AN EMPTY STRING
             before("", (request, response) -> {
                 handleAuthentication(request.headers("Authorization"));
