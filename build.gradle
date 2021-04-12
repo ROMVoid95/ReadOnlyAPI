@@ -72,16 +72,13 @@ artifacts {
 }
 
 def gitRevision() {
-//    def gitVersion = new ByteArrayOutputStream()
-//   exec {
-//        commandLine("git", "rev-parse", "--short", "HEAD")
-//        standardOutput = gitVersion
-//    }
+    def gitVersion = new ByteArrayOutputStream()
+   exec {
+        commandLine("git", "rev-parse", "--short", "HEAD")
+        standardOutput = gitVersion
+    }
 
-//    return gitVersion.toString().trim()
-
-	def version = '1.0.0'
-	return version.toString()
+    return gitVersion.toString().trim()
 }
 
 
